@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLK SERUYAN</title>
+
+    <!-- Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,700&display=swap" rel="stylesheet">
+
+    <!-- Feather Icon -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- AlpineJS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- App -->
+    <script src="src/apps.js"></script>
+
+
+</head>
+
+
+<body>
+
+    <!-- Navbar Start -->
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">BLK<span>SERUYAN</span></a>
+
+
+        <div class="navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#menu">Pelatihan</a></li>
+            <li><a href="#">Galeri</a></li>
+            <li class="dropdown">
+                <a href="#">
+                    Profil
+                    <i data-feather="chevron-down"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="visimisi.html">Visi Misi</a></li>
+                    <li><a href="strukturorganisasi.html">Struktur Organisasi</a></li>
+                </ul>
+            </li>
+            <li><a href="index.html#contact">Kontak</a></li>
+        </div>
+
+
+        <div class="navbar-extra">
+            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        </div>
+    </nav>
+
+    <!-- Navbar End -->
+
+
+    <!-- Hero Section start -->
+
+    <section class="herooo" id="home">
+        <main class="content">
+        </main>
+    </section>
+    <div class="p-galeri">
+    <h3>Peningkatan Kompetensi Melalui Pelatihan Kerja BLK Kabupaten Seruyan <span> </span></h3>
+    <p>BLK Kabupaten Seruyan menyelenggarakan kegiatan pelatihan kerja sebagai upaya meningkatkan kompetensi, keterampilan, dan kualitas sumber daya manusia yang siap bersaing di dunia kerja maupun dunia usaha. Kegiatan ini diikuti oleh para peserta pelatihan bersama seluruh jajaran instruktur dan staf sebagai bentuk komitmen bersama dalam mendukung pengembangan tenaga kerja yang produktif, profesional, dan berdaya saing.
+    <p>Pelatihan ini bertujuan untuk membekali peserta dengan kemampuan teknis serta pengetahuan yang sesuai dengan kebutuhan industri dan perkembangan zaman. Selain itu, kegiatan ini juga menjadi sarana untuk menumbuhkan sikap disiplin, tanggung jawab, dan etos kerja yang baik bagi seluruh peserta pelatihan.
+    <p>Melalui kegiatan ini, BLK Kabupaten Seruyan berharap para peserta dapat mengembangkan potensi diri, meningkatkan peluang kerja, serta mampu menciptakan lapangan usaha secara mandiri. Diharapkan pula pelatihan ini dapat memberikan kontribusi positif dalam mendukung pembangunan daerah melalui peningkatan kualitas tenaga kerja yang kompeten dan siap menghadapi tantangan dunia kerja.</p>
+    </div>
+    
+    <!-- Hero Section end -->
+
+
+    <!-- Products Section start -->
+    <section class="products" id="products" x-data="products">
+        <h2><span>Dokumentasi</span> Kami</h2>
+        <p></p>
+
+
+        <div class="row">
+            <template x-for="(item, index) in items" x-key="index">
+            <div class="product-card">
+                <div class="product-icon">
+                </div>
+                <div class="product-image">
+                    <img :src="`img/products/${item.img}`" :alt="item.name">
+                </div>
+                <div class="product-content">
+                    <h3 x-text="item.name"></h3>
+                    <div class="product-stars">
+                    <svg
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <use href="img/feather-sprite.svg#star" />
+                    </svg>
+                    <svg
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <use href="img/feather-sprite.svg#star" />
+                    </svg>
+                    <svg
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <use href="img/feather-sprite.svg#star" />
+                    </svg>
+                    <svg
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <use href="img/feather-sprite.svg#star" />
+                    </svg>
+                    <svg
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <use href="img/feather-sprite.svg#star" />
+                    </svg>
+                    </div>
+                </div>
+            </div>
+            </template>
+        </div>
+    </section>
+    <!-- Products Section end -->
+
+
+    <!-- Footer start -->
+    <footer>
+        <div class="socials">
+            <a href="https://instagram.com/blkseruyan"><i data-feather="instagram"></i></a>
+            <a href="https://facebook.com/BLK seruyan"><i data-feather="facebook"></i></a>
+        </div>
+
+        <div class="links">
+            <a href="#home">Home</a>
+            <a href="#menu">Program Pelatihan</a>
+            <a href="#home">Profil</a>
+            <a href="#contact">Kontak BLK</a>
+        </div>
+
+        <div class="credit">
+            <p>Created by <a href="">alrifatih</a>. | &copy; 2026.</p>
+        </div>
+
+    </footer>
+    <!-- Footer end -->
+
+    <!-- Modal Box Item Detail start -->
+    <div class="modal" id="item-detail-modal">
+        <div class="modal-container">
+            <a href="#" class="close-icon"><i data-feather="x"></i></a>
+            <div class="modal-content">
+                <img src="img/products/1.png" alt="Product 1">
+                <div class="product-content">
+                    <h3>Pelatihan Komputer</h3>
+                    <p>Sedang melaksanakan pelatihan komputer berbasis kompetensi</p>
+                    <div class="product-stars">
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Box Item Detail end -->
+
+
+    <!-- Feather Icon -->
+<script>
+    feather.replace();
+</script>
+
+<!-- My Javascript -->
+<script src="js/script.js"></script>
+
+</body>
+
+
+</html>
+
+
+
