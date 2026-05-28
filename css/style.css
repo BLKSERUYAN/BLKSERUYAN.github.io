@@ -626,6 +626,7 @@ footer .credit a {
     max-width: 850px;
 
     background: #fff;
+
     border-radius: 20px;
 
     padding: 2rem;
@@ -633,7 +634,6 @@ footer .credit a {
     box-shadow:
         0 10px 40px rgba(0, 0, 0, 0.25);
 
-    /* animasi awal */
     transform: scale(0.7);
     opacity: 0;
 
@@ -666,7 +666,7 @@ footer .credit a {
 }
 
 /* isi modal */
-.modal-content {
+.modal .modal-content {
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -696,6 +696,15 @@ footer .credit a {
     margin-bottom: 1.5rem;
 }
 
+
+.product-content h3 {
+    color: #222;
+}
+
+.product-content p {
+    color: #555;
+}
+
 /* button */
 .modal-btn {
     padding: 12px 24px;
@@ -723,7 +732,7 @@ footer .credit a {
         padding: 1.5rem;
     }
 
-    .modal-content {
+    .news-modal-content {
         flex-direction: column;
         text-align: center;
     }
@@ -742,7 +751,7 @@ footer .credit a {
 .welcome-screen {
     position: fixed;
     inset: 0;
-    z-index: 99999;
+    z-index: 100000;
 
     display: flex;
     justify-content: center;
@@ -879,6 +888,406 @@ footer .credit a {
 
 
 
+/* =========================
+    MODAL BERITA
+========================= */
+
+.news-modal-content {
+    width: 90%;
+    max-width: 750px;
+
+    background: #ffffff;
+
+    border-radius: 30px;
+
+    padding: 50px;
+
+    position: relative;
+
+    animation: popup 0.4s ease;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* AKTIF */
+.news-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+@keyframes popup {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.news-modal-content h2 {
+    color: #222;
+    font-size: 2.3rem;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.news-modal-content p {
+    color: #555;
+    font-size: 1.15rem;
+    line-height: 2;
+}
+
+.close-image-modal {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: rgb(0, 0, 0);
+    font-size: 2.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-image-modal:hover {
+    color: #00c3ff;
+    transform: rotate(90deg);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+
+    .modal-content {
+        padding: 35px 25px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.7rem;
+    }
+
+    .modal-content p {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+}
+
+
+
+.modal {
+    pointer-events: none;
+}
+
+.modal.active {
+    pointer-events: auto;
+}
+
+.news-modal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+
+    z-index: 99999;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+
+    pointer-events: none;
+}
+
+.news-modal.active {
+    pointer-events: auto;
+}
+
+
+
+
+
+
+
+/* =========================
+   BERITA MODERN
+========================= */
+
+.berita-section {
+    min-height: 100vh;
+    padding: 120px 7%;
+
+    background:
+        radial-gradient(circle at top left,
+            rgba(0, 195, 255, 0.15),
+            transparent 30%),
+
+        radial-gradient(circle at bottom right,
+            rgba(0, 255, 170, 0.15),
+            transparent 30%),
+
+        #050505;
+
+    overflow: hidden;
+}
+
+/* HEADER */
+.berita-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.berita-header h1 {
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.berita-header h1 span {
+    color: #00c3ff;
+}
+
+.berita-header p {
+    color: #bbb;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+/* CONTAINER */
+.berita-container {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 35px;
+}
+
+/* CARD */
+.berita-card {
+    position: relative;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(15px);
+
+    transition: 0.5s ease;
+
+    animation: fadeUp 1s ease;
+}
+
+/* HOVER */
+.berita-card:hover {
+    transform:
+        translateY(-12px) scale(1.02);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.5),
+
+        0 0 25px rgba(0, 195, 255, 0.4);
+}
+
+/* IMAGE */
+.berita-image {
+    overflow: hidden;
+    position: relative;
+}
+
+.berita-image img {
+    width: 100%;
+    height: 260px;
+
+    object-fit: cover;
+
+    transition: 0.6s ease;
+}
+
+.berita-card:hover img {
+    transform: scale(1.12);
+}
+
+/* OVERLAY */
+.berita-image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(to top,
+            rgba(0, 0, 0, 0.6),
+            transparent);
+
+    opacity: 0;
+
+    transition: 0.5s;
+}
+
+.berita-card:hover .berita-image::after {
+    opacity: 1;
+}
+
+/* CONTENT */
+.berita-content {
+    padding: 25px;
+}
+
+.berita-content h3 {
+    font-size: 1.6rem;
+    color: white;
+
+    margin-bottom: 15px;
+}
+
+.berita-content p {
+    color: #ccc;
+
+    line-height: 1.8;
+
+    font-size: 1rem;
+}
+
+/* ANIMASI */
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================
+    IMAGE MODAL
+========================= */
+
+.image-modal {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.92);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.4s ease;
+
+    z-index: 999999;
+
+    backdrop-filter: blur(8px);
+}
+
+.image-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* FOTO */
+.image-modal img {
+    width: 90%;
+    max-width: 1100px;
+
+    max-height: 90vh;
+
+    object-fit: contain;
+
+    border-radius: 20px;
+
+    transform: scale(0.8);
+
+    transition: 0.4s ease;
+
+    box-shadow:
+        0 0 40px rgba(255, 255, 255, 0.15);
+}
+
+.image-modal.show img {
+    transform: scale(1);
+}
+
+/* CLOSE */
+.close-modal {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+
+    color: white;
+
+    font-size: 50px;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+}
+
+.close-modal:hover {
+    transform: rotate(180deg) scale(1.2);
+
+    color: #00c3ff;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+
+    .berita-header h1 {
+        font-size: 2.7rem;
+    }
+
+    .berita-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .berita-image img {
+        height: 220px;
+    }
+
+    .image-modal img {
+        max-width: 400px;
+    }
+
+}
+
+
+/* IMAGE ZOOM */
+
+.image-modal img{
+    cursor: grab;
+    
+    transition:
+    transform 0.15s ease;
+
+}
+
+
+
+
+
+
 /* Media Queries */
 /* Laptop */
 @media (max-width: 1366px) {
@@ -984,7 +1393,7 @@ footer .credit a {
     }
 }
 
-.modal-content {
+.modal .modal-content {
     flex-wrap: wrap;
 }
 
@@ -1031,4 +1440,62 @@ footer .credit a {
         border: 1px solid #666;
         padding: 2rem;
     }
+}
+
+
+/* =========================
+    BERITA CARD FIX
+========================= */
+
+.berita-card {
+    background: rgba(255, 255, 255, 0.08);
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition: 0.4s ease;
+
+    backdrop-filter: blur(10px);
+
+    max-width: 400px;
+
+    width: 100%;
+
+    margin: auto;
+}
+
+.berita-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(0, 195, 255, 0.4);
+}
+
+.berita-card img {
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.berita-card h3 {
+    padding: 20px 20px 10px;
+
+    font-size: 1.5rem;
+
+    color: white;
+}
+
+.berita-card p {
+    padding: 0 20px 25px;
+
+    color: #ddd;
+
+    line-height: 1.7;
 }
