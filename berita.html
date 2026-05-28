@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
+    <meta name="google-site-verification" content="IAKIjGHGs4Fj-Ax26SznBcBzrAOuNLCb9rnPLU96doY" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BLK SERUYAN</title>
+    <title>BLK KABUPATEN SERUYAN</title>
 
     <!-- Fonts -->
 
@@ -16,8 +18,15 @@
 
 
     <!-- My Style -->
-
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- AlpineJS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- App -->
+    <script src="src/apps.js"></script>
+
+
 </head>
 
 
@@ -40,7 +49,7 @@
                 </ul>
             </li>
             <li><a href="index.html#contact">Kontak</a></li>
-            <li><a href="berita.html">Berita</a></li>
+            <li><a href="#">Berita</a></li>
         </div>
 
 
@@ -51,33 +60,66 @@
 
     <!-- Navbar End -->
 
-    <!-- Hero Section start -->
 
 
-        <div class="about-img-strukturorganisasi">
-            <img src="pelatihan/komputer.png"
-            alt="Tentang Kami">
+    <section class="berita-section">
+
+        <div class="berita-header">
+            <h1>Berita <span>BLK Seruyan</span></h1>
+            <p>
+                Informasi terbaru seputar kegiatan dan pelatihan
+                BLK Kabupaten Seruyan.
+            </p>
         </div>
 
-        <section id="menu" class="menu">
-        <h2><span>Program</span> Pelatihan</h2>
+        <div class="berita-container">
 
-    <div class="row">
-        <div class="menu-card">
-            <img src="img/pelatihan/desain.png"
-            alt="Pelatihan Listrik" class="menu-card-img">
-            <h3 class="menu-card-title">- Desain Grafis -</h3>
+            <!-- CARD 1 -->
+            <div class="berita-card">
+
+                <div class="berita-image">
+                    <img src="img/berita/1.jpeg" alt="">
+                </div>
+
+                <div class="berita-content">
+                    <h3>Pelatihan Vokasi Nasional Batch 2</h3>
+
+                </div>
+
+
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="berita-card">
+
+                <div class="berita-image">
+                    <img src="img/0.jpg" alt="">
+                </div>
+
+                <div class="berita-content">
+                    <h3>Kegiatan Uji Kompetensi</h3>
+
+                </div>
+
+            </div>
+
         </div>
-        <div class="menu-card">
-            <img src="img/pelatihan/muda.png"
-            alt="Pelatihan Komputer" class="menu-card-img">
-            <h3 class="menu-card-title">- Computer Operator Muda -</h3>
-        </div>
+
     </section>
-    <!-- Menu Section end -->
 
 
-    <!-- Hero Section end -->
+
+    <!-- MODAL IMAGE -->
+    <div class="image-modal" id="imageModal">
+
+        <span class="close-modal">&times;</span>
+
+        <img src="" id="modalImage">
+
+    </div>
+
+
+
 
     <!-- Footer start -->
     <footer>
@@ -87,10 +129,10 @@
         </div>
 
         <div class="links">
-            <a href="index.html#menu">Home</a>
-            <a href="index.html#menu">Program Pelatihan</a>
-            <a href="index.html">Profil</a>
-            <a href="index.html#contact">Kontak BLK</a>
+            <a href="#home">Home</a>
+            <a href="#menu">Program Pelatihan</a>
+            <a href="#home">Profil</a>
+            <a href="#contact">Kontak BLK</a>
         </div>
 
         <div class="credit">
@@ -98,17 +140,18 @@
         </div>
 
     </footer>
-    <!-- Footer end --
-
+    <!-- Footer end -->
 
 
     <!-- Feather Icon -->
-<script>
-    feather.replace();
-</script>
+    <script>
+        feather.replace();
+    </script>
 
-<!-- My Javascript -->
-<script src="js/script.js"></script>
+    <!-- My Javascript -->
+    <script src="js/script.js"></script>
+
+
 
 </body>
 
