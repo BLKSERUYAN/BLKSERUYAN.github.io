@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusat Unduhan Dokumen - BLK Seruyan</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Gaya Khusus Pusat Dokumen */
+        .doc-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .doc-card {
+            background: var(--bg-white, #ffffff);
+            border-radius: var(--radius-lg, 12px);
+            box-shadow: var(--shadow-elegant, 0 10px 30px rgba(0, 0, 0, 0.05));
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(15, 76, 129, 0.06);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(15, 76, 129, 0.1);
+        }
+
+        .doc-info {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .doc-icon {
+            background: rgba(239, 68, 68, 0.1);
+            /* Merah khas PDF */
+            color: #ef4444;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .doc-details h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-dark, #0f4c81);
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .doc-details p {
+            font-size: 13px;
+            color: var(--text-muted, #64748b);
+            margin-bottom: 0;
+        }
+
+        .doc-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        .doc-meta span b {
+            color: #475569;
+        }
+
+        .btn-doc-download {
+            margin-top: 20px;
+            background: linear-gradient(135deg, var(--primary, #0f4c81), #1d72b8);
+            color: white !important;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-doc-download:hover {
+            background: linear-gradient(135deg, #1d72b8, #0f4c81);
+            box-shadow: 0 5px 15px rgba(29, 114, 184, 0.3);
+        }
+
+        /* Klasifikasi Kategori Dokumen */
+        .doc-category-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-dark, #0f4c81);
+            margin-top: 5px;
+            border-left: 4px solid var(--accent, #f1a80a);
+            padding-left: 12px;
+        }
+
+        body.dark-theme .doc-card {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+        }
+
+        body.dark-theme .doc-meta {
+            border-top-color: #334155;
+        }
+
+        body.dark-theme .doc-meta span b {
+            color: #cbd5e1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span>Kementerian Ketenagakerjaan Republik Indonesia</span>
+            <span>UPTD Balai Latihan Kerja Kabupaten Seruyan</span>
+        </div>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>BLK <span>Seruyan</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+
+                <li class="dropdown">
+                    <button class="dropdown-toggle">
+                        Profil <span class="arrow">▼</span>
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="visimisi.html">Visi Misi</a></li>
+                        <li><a href="strukturorganisasi.html">STOK</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="pelatihan.html">Pelatihan</a></li>
+                <li><a href="download.html">Unduhan</a></li>
+                <li><a href="berita.html">Berita</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </nav>
+    </header>
+
+    <main class="doc-section">
+        <div style="text-align: center; margin-bottom: 50px;" data-aos="fade-up">
+            <h2 class="section-title">Pusat Unduhan Dokumen</h2>
+            <p class="section-subtitle">Akses mudah dan cepat untuk mengunduh seluruh berkas administrasi, brosur, dan
+                regulasi resmi BLK Seruyan.</p>
+        </div>
+
+        <!-- KATEGORI 1: PENDAFTARAN & PELATIHAN -->
+        <div data-aos="fade-up">
+            <h3 class="doc-category-title">Informasi & Pendaftaran Pelatihan</h3>
+            <div class="doc-grid">
+
+                <!-- KARTU DOKUMEN 1 -->
+                <div class="doc-card">
+                    <div class="doc-info">
+                        <div class="doc-icon">📄</div>
+                        <div class="doc-details">
+                            <h3>Brosur Resmi Program Pelatihan Tahun 2026</h3>
+                            <p>Informasi lengkap mengenai daftar kejuruan, syarat pendaftaran, dan fasilitas peserta.
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doc-meta">
+                            <span>Format: <b>jpeg</b></span>
+                            <span>Ukuran: <b>178.95 kb</b></span>
+                        </div>
+                        <a href="img/berita/1.jpeg" download class="btn-doc-download">
+                            📥 Unduh Dokumen
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KARTU DOKUMEN 2 -->
+                <div class="doc-card">
+                    <div class="doc-info">
+                        <div class="doc-icon">📄</div>
+                        <div class="doc-details">
+                            <h3>Formulir Pendaftaran Offline (F-01/PBK)</h3>
+                            <p>Formulir cetak resmi bagi calon peserta yang ingin mendaftar langsung ke kantor UPTD.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doc-meta">
+                            <span>Format: <b>PDF</b></span>
+                            <span>Ukuran: 450<b> KB</b></span>
+                        </div>
+                        <a href="" download class="btn-doc-download">
+                            📥 Unduh Dokumen
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KARTU DOKUMEN 3 -->
+                <div class="doc-card">
+                    <div class="doc-info">
+                        <div class="doc-icon">📄</div>
+                        <div class="doc-details">
+                            <h3>Kalender Akademik Pelatihan 2026</h3>
+                            <p>Jadwal gelombang seleksi, pelaksanaan kelas praktik, hingga jadwal uji kompetensi BNSP.
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doc-meta">
+                            <span>Format: <b>PDF</b></span>
+                            <span>Ukuran: <b>1.1 MB</b></span>
+                        </div>
+                        <a href="" download class="btn-doc-download">
+                            📥 Unduh Dokumen
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <br><br><br>
+
+        <!-- KATEGORI 2: STANDAR OPERASIONAL & REGULASI -->
+        <div data-aos="fade-up" style="margin-bottom: 40px;">
+            <h3 class="doc-category-title">Regulasi & Standar Mutu</h3>
+            <div class="doc-grid">
+
+                <!-- KARTU DOKUMEN 4 -->
+                <div class="doc-card">
+                    <div class="doc-info">
+                        <div class="doc-icon">📄</div>
+                        <div class="doc-details">
+                            <h3>Tata Tertib & Kode Etik Peserta Pelatihan</h3>
+                            <p>Panduan regulasi hak, kewajiban, ketentuan seragam, dan sanksi kedisiplinan siswa BLK.
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doc-meta">
+                            <span>Format: <b>PDF</b></span>
+                            <span>Ukuran: <b>850 KB</b></span>
+                        </div>
+                        <a href="" download class="btn-doc-download">
+                            📥 Unduh Dokumen
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KARTU DOKUMEN 5 -->
+                <div class="doc-card">
+                    <div class="doc-info">
+                        <div class="doc-icon">📄</div>
+                        <div class="doc-details">
+                            <h3>Standar Pelayanan Publik UPTD BLK Seruyan</h3>
+                            <p>Maklumat pelayanan makro mengenai keterbukaan informasi dan jaminan mutu pelatihan
+                                gratis.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doc-meta">
+                            <span>Format: <b>PDF</b></span>
+                            <span>Ukuran: <b>1.8 MB</b></span>
+                        </div>
+                        <a href="" download class="btn-doc-download">
+                            📥 Unduh Dokumen
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3 style="color:white; margin-bottom:15px;">BLK Seruyan</h3>
+                <p>Pusat Inkubasi Talenta Kerja Kompeten, Transparan, dan Akuntabel Nasional.</p>
+            </div>
+
+            <div class="footer-socials">
+                <h4 style="color:white; margin-bottom:15px;">Ikuti Media Sosial</h4>
+                <p style="font-size: 13px; margin-bottom: 15px; color: var(--text-muted);">Dapatkan pembaruan info
+                    pelatihan tercepat melalui kanal resmi kami:</p>
+                <div class="social-icons-wrapper">
+                    <a href="https://www.instagram.com/blkseruyan/" target="_blank" class="social-icon-link icon-ig"
+                        title="Instagram Resmi">📸 Instagram</a>
+                    <a href="https://www.facebook.com/BLK seruyan" target="_blank" class="social-icon-link icon-fb"
+                        title="Facebook Page">📘 Facebook</a>
+                    <a href="https://youtube.com" target="_blank" class="social-icon-link icon-yt"
+                        title="YouTube Channel">🎥 YouTube</a>
+                </div>
+            </div>
+
+            <div class="footer-contact">
+                <h4 style="color:white; margin-bottom:15px;">Hubungi Kami</h4>
+                <p style="font-size: 14px;">Kuala Pembuang, Kabupaten Seruyan, Kalimantan Tengah, Indonesia.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 BLK Seruyan. All Rights Reserved. Portal Internasional.  By alrifatih</div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

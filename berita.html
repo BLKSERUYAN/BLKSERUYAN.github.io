@@ -1,159 +1,131 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="id">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="google-site-verification" content="IAKIjGHGs4Fj-Ax26SznBcBzrAOuNLCb9rnPLU96doY" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BLK KABUPATEN SERUYAN</title>
-
-    <!-- Fonts -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,700&display=swap" rel="stylesheet">
-
-    <!-- Feather Icon -->
-    <script src="https://unpkg.com/feather-icons"></script>
-
-
-    <!-- My Style -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita - BLK Seruyan</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- AlpineJS -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <!-- App -->
-    <script src="src/apps.js"></script>
-
-
 </head>
 
-
 <body>
-
-    <!-- Navbar Start -->
-    <nav class="navbar">
-        <a href="#" class="navbar-logo">BLK<span>SERUYAN</span></a>
-
-
-        <div class="navbar-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#menu">Pelatihan</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
-            <li class="dropdown">
-                <a href="#">Profil</a>
-                <ul class="dropdown-menu">
-                    <li><a href="visimisi.html">Visi Misi</a></li>
-                    <li><a href="strukturorganisasi.html">Struktur Organisasi</a></li>
-                </ul>
-            </li>
-            <li><a href="index.html#contact">Kontak</a></li>
-            <li><a href="#">Berita</a></li>
-        </div>
-
-
-        <div class="navbar-extra">
-            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
-        </div>
-    </nav>
-
-    <!-- Navbar End -->
-
-
-
-    <section class="berita-section">
-
-        <div class="berita-header">
-            <h1>Berita <span>BLK Seruyan</span></h1>
-            <p>
-                Informasi terbaru seputar kegiatan dan pelatihan
-                BLK Kabupaten Seruyan.
-            </p>
-        </div>
-
-        <div class="berita-container">
-
-            <!-- CARD 1 -->
-            <div class="berita-card">
-
-                <div class="berita-image">
-                    <img src="img/berita/1.jpeg" alt="">
-                </div>
-
-                <div class="berita-content">
-                    <h3>Pelatihan Vokasi Nasional Batch 2</h3>
-
-                </div>
-
-
-            </div>
-
-            <!-- CARD 2 -->
-            <div class="berita-card">
-
-                <div class="berita-image">
-                    <img src="img/0.jpg" alt="">
-                </div>
-
-                <div class="berita-content">
-                    <h3>Kegiatan Uji Kompetensi</h3>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- MODAL IMAGE -->
-    <div class="image-modal" id="imageModal">
-
-        <span class="close-modal">&times;</span>
-
-        <img src="" id="modalImage">
-
+    <div class="top-bar">
+        <div class="top-bar-content"><span>Kementerian Ketenagakerjaan Republik Indonesia</span></div>
     </div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>BLK <span>Seruyan</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
 
+                <li class="dropdown">
+                    <button class="dropdown-toggle">
+                        Profil <span class="arrow">▼</span>
+                    </button>
 
+                    <ul class="dropdown-menu">
+                        <li><a href="visimisi.html">Visi Misi</a></li>
+                        <li><a href="strukturorganisasi.html">STOK</a></li>
+                    </ul>
+                </li>
 
+                <li><a href="pelatihan.html">Pelatihan</a></li>
+                <li><a href="download.html">Unduhan</a></li>
+                <li><a href="berita.html">Berita</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </nav>
+    </header>
 
-    <!-- Footer start -->
+    <main>
+        <section>
+            <h2 class="section-title" data-aos="fade-up">Pusat Kabar & Pengumuman Instansi</h2>
+            <p class="section-subtitle" data-aos="fade-up">Informasi terakurat seputar agenda internal dan pembukaan
+                pendaftaran massal</p>
+
+            <div class="grid-3">
+                <!-- BERITA UTAMA (Membentang Lebar Gaya Portal Internasional) -->
+                <div class="featured-news" data-aos="fade-up">
+                    <div style="height: 100%; min-height: 300px; overflow:hidden;">
+                        <img src="img/berita/1.jpeg"
+                            alt="News" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div style="padding: 40px; display:flex; flex-direction:column; justify-content:center;">
+                        <span style="color:var(--accent); font-weight:800; font-size:12px;">BERITA UTAMA •  10/MEI/2026
+                            2026</span>
+                        <h3 style="font-size:24px; margin:10px 0;">DIBUKA PENDAFTARAN PELATIHAN VOKASI BATCH 2 TAHUN 2026</h3>
+                        <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">Program Kejuruan Operator Komputer Muda dan Teknisi Instalasi Tenaga Di Balai Latihan Kerja Kabupaten Seruyan</p>
+                        <a href="#" class="btn-secondary">Baca Selengkapnya (4 mnt baca) &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- BERITA KARTU BIASA -->
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-body">
+                        <small style="color: var(--secondary); font-weight: 800;">INFO REGISTRASI • 28 MEI 2026</small>
+                        <h3 style="margin: 12px 0 10px 0; font-size: 18px;">Ujian Seleksi Tertulis Calon Siswa Gelombang
+                            Ke-2 Dimulai Pekan Depan</h3>
+                        <p style="color: var(--text-muted); font-size: 14px; margin-bottom:20px;">Peserta diwajibkan
+                            membawa kartu tanda pengenal resmi serta berpakaian kemeja putih rapi.</p>
+                        <a href="#" class="btn-secondary">Baca Artikel &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-body">
+                        <small style="color: var(--secondary); font-weight: 800;">ALUMNI NEWS • MEI 2026</small>
+                        <h3 style="margin: 12px 0 10px 0; font-size: 18px;">Penandatanganan Kontrak Kerja Kolektif
+                            Bersama Sektor Industri Kelapa Sawit</h3>
+                        <p style="color: var(--text-muted); font-size: 14px; margin-bottom:20px;">Sebanyak 35 alumni
+                            kejuruan kelistrikan diserap langsung sebagai staf maintenance pabrik wilayah Kalimantan
+                            Tengah.</p>
+                        <a href="#" class="btn-secondary">Baca Artikel &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <div class="socials">
-            <a href="https://instagram.com/blkseruyan"><i data-feather="instagram"></i></a>
-            <a href="https://facebook.com/BLK seruyan"><i data-feather="facebook"></i></a>
-        </div>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3 style="color:white; margin-bottom:15px;">BLK Seruyan</h3>
+                <p>Pusat Inkubasi Talenta Kerja Kompeten, Transparan, dan Akuntabel Nasional.</p>
+            </div>
 
-        <div class="links">
-            <a href="#home">Home</a>
-            <a href="#menu">Program Pelatihan</a>
-            <a href="#home">Profil</a>
-            <a href="#contact">Kontak BLK</a>
-        </div>
+            <div class="footer-socials">
+                <h4 style="color:white; margin-bottom:15px;">Ikuti Media Sosial</h4>
+                <p style="font-size: 13px; margin-bottom: 15px; color: var(--text-muted);">Dapatkan pembaruan info
+                    pelatihan tercepat melalui kanal resmi kami:</p>
+                <div class="social-icons-wrapper">
+                    <a href="https://www.instagram.com/blkseruyan/" target="_blank" class="social-icon-link icon-ig"
+                        title="Instagram Resmi">📸 Instagram</a>
+                    <a href="https://www.facebook.com/BLK seruyan" target="_blank" class="social-icon-link icon-fb"
+                        title="Facebook Page">📘 Facebook</a>
+                    <a href="https://youtube.com" target="_blank" class="social-icon-link icon-yt"
+                        title="YouTube Channel">🎥 YouTube</a>
+                </div>
+            </div>
 
-        <div class="credit">
-            <p>Created by <a href="">alrifatih</a>. | &copy; 2026.</p>
+            <div class="footer-contact">
+                <h4 style="color:white; margin-bottom:15px;">Hubungi Kami</h4>
+                <p style="font-size: 14px;">Kuala Pembuang, Kabupaten Seruyan, Kalimantan Tengah, Indonesia.</p>
+            </div>
         </div>
-
+        <div class="footer-bottom">&copy; 2026 BLK Seruyan. All Rights Reserved. Portal Internasional. By alrifatih
+        </div>
     </footer>
-    <!-- Footer end -->
-
-
-    <!-- Feather Icon -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        feather.replace();
+        AOS.init({
+            duration: 800,
+            once: true
+        });
     </script>
-
-    <!-- My Javascript -->
     <script src="js/script.js"></script>
-
-
-
 </body>
-
 
 </html>

@@ -1,98 +1,403 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="id">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BLK SERUYAN</title>
-
-    <!-- Fonts -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,700&display=swap" rel="stylesheet">
-
-    <!-- Feather Icon -->
-    <script src="https://unpkg.com/feather-icons"></script>
-
-
-    <!-- My Style -->
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Organisasi Eksekutif - BLK Seruyan</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="css/style.css">
-</head>
+    <style>
+        /* CSS Khusus Dashboard Tata Kelola Modern */
+        .org-header-badge {
+            background: rgba(15, 76, 129, 0.06);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
 
+        /* Filter Tabs */
+        .org-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto 50px;
+            max-width: 700px;
+            background: rgba(15, 76, 129, 0.04);
+            padding: 6px;
+            border-radius: 40px;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: var(--transition-smooth);
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: var(--bg-white);
+            color: var(--primary);
+            box-shadow: var(--shadow-elegant);
+        }
+
+        /* Grid Layout */
+        .org-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Premium Glassmorphic Card */
+        .member-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-elegant);
+            padding: 35px 25px;
+            text-align: center;
+            border: 1px solid rgba(15, 76, 129, 0.04);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px -10px rgba(15, 76, 129, 0.15);
+        }
+
+        /* Pemimpin Utama Mengambil Ruang Penuh */
+        .member-card.prime-leader {
+            grid-column: 1 / -1;
+            max-width: 450px;
+            margin: 0 auto 20px;
+            padding: 45px 35px;
+        }
+
+        .member-card.prime-leader::before {
+            background: linear-gradient(90deg, var(--accent), #e09216);
+        }
+
+        /* Avatar Container */
+        .avatar-wrapper {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+        }
+
+        .avatar-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(29, 114, 184, 0.1), rgba(15, 76, 129, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            border: 2px dashed rgba(15, 76, 129, 0.2);
+            transition: var(--transition-smooth);
+        }
+
+        .member-card:hover .avatar-circle {
+            transform: rotate(15px) scale(1.05);
+            background: rgba(15, 76, 129, 0.08);
+            border-style: solid;
+        }
+
+        /* Role Badge */
+        .role-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary);
+            background: rgba(29, 114, 184, 0.08);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .prime-leader .role-tag {
+            color: #b7791f;
+            background: var(--accent-light);
+        }
+
+        .member-name {
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+        }
+
+        .member-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Grid Komite Tambahan di Bawah */
+        .board-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background: var(--primary-dark);
+            color: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin: 70px auto 30px;
+            max-width: 1200px;
+        }
+
+        .stat-node {
+            text-align: center;
+        }
+
+        .stat-node h5 {
+            font-size: 28px;
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .stat-node p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .board-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                padding: 30px 20px;
+            }
+
+            .org-tabs {
+                flex-direction: column;
+                border-radius: var(--radius-md);
+            }
+        }
+    </style>
+</head>
 
 <body>
 
-    <!-- Navbar Start -->
-    <nav class="navbar">
-        <a href="#" class="navbar-logo">BLK<span>SERUYAN</span></a>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span>Kementerian Ketenagakerjaan Republik Indonesia</span>
+            <span>UPTD Balai Latihan Kerja Kabupaten Seruyan</span>
+        </div>
+    </div>
 
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>BLK <span>Seruyan</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
 
-        <div class="navbar-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#menu">Pelatihan</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
-            <li class="dropdown">
-                <a href="#">Profil</a>
-                <ul class="dropdown-menu">
-                    <li><a href="visimisi.html">Visi Misi</a></li>
-                    <li><a href="#">Struktur Organisasi</a></li>
-                </ul>
-            </li>
-            <li><a href="index.html#contact">Kontak</a></li>
-            <li><a href="berita.html">Berita</a></li>
+                <li class="dropdown">
+                    <button class="dropdown-toggle">
+                        Profil <span class="arrow">▼</span>
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="visimisi.html">Visi Misi</a></li>
+                        <li><a href="strukturorganisasi.html">STOK</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="pelatihan.html">Pelatihan</a></li>
+                <li><a href="download.html">Unduhan</a></li>
+                <li><a href="berita.html">Berita</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </nav>
+    </header>
+
+    <main style="padding: 60px 20px;">
+        <div style="text-align: center;" data-aos="fade-up">
+            <div class="org-header-badge">MANAJEMEN AKUNTABEL & TRANSPARAN</div>
+            <h2 class="section-title" style="margin-bottom:10px;">Struktur Organisasi & Tata Kelola</h2>
+            <p class="section-subtitle" style="margin-bottom: 40px;">Sinergi jajaran eksekutif kepemimpinan operasional
+                UPTD BLK Seruyan tahun anggaran 2026</p>
         </div>
 
-
-        <div class="navbar-extra">
-            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        <!-- INTERACTIVE FILTER TABS (BARU) -->
+        <div class="org-tabs" data-aos="fade-up" data-aos-delay="100">
+            <button class="tab-btn active" data-dept="all">Semua Struktur</button>
+            <button class="tab-btn" data-dept="pimpinan">Pimpinan Inti</button>
+            <button class="tab-btn" data-dept="operasional">Divisi Operasional</button>
+            <button class="tab-btn" data-dept="instruktur">Instruktur Spesialis</button>
         </div>
-    </nav>
 
-    <!-- Navbar End -->
+        <!-- INTERACTIVE DASHBOARD GRID -->
+        <div class="org-grid">
+
+            <!-- KARTU UTAMA: KEPALA BALAI (PIMPINAN) -->
+            <div class="member-card prime-leader cat-pimpinan" data-aos="fade-up">
+                <div class="avatar-wrapper">
+                    <div class="avatar-circle">👨‍💼</div>
+                </div>
+                <span class="role-tag">Kepala UPTD BLK</span>
+                <h4 class="member-name">ABDUS SALAM, S.I.P.</h4>
+                <p class="member-meta">Penanggung Jawab Kebijakan Strategis & Anggaran Operasional<br><b></b></p>
+            </div>
+
+            <!-- KASUBAG TATA USAHA (OPERASIONAL) -->
+            <div class="member-card cat-operasional" data-aos="fade-up" data-aos-delay="100">
+                <div class="avatar-wrapper">
+                    <div class="avatar-circle">👩‍💻</div>
+                </div>
+                <span class="role-tag">Kasubag Tata Usaha</span>
+                <h4 class="member-name">TAUFIKURRAHMAN, S.SI.</h4>
+                <p class="member-meta">Eksplorasi Administrasi, Hukum, Personalia & Kearsipan Internal<br><b></b></p>
+            </div>
+
+            <!-- JALUR INSTRUKTUR (INSTRUKTUR) -->
+            <div class="member-card cat-instruktur" data-aos="fade-up" data-aos-delay="400">
+                <div class="avatar-wrapper">
+                    <div class="avatar-circle">👨‍🏫</div>
+                </div>
+                <span class="role-tag">Instruktur</span>
+                <h4 class="member-name">FRENGKY, S.T.</h4>
+                <p class="member-meta">Pengawas Standardisasi Pengajaran Praktik & Validasi Kelayakan Uji Kompetensi</p>
+            </div>
+            <div class="member-card cat-instruktur" data-aos="fade-up" data-aos-delay="400">
+                <div class="avatar-wrapper">
+                    <div class="avatar-circle">👨‍🏫</div>
+                </div>
+                <span class="role-tag">Instruktur</span>
+                <h4 class="member-name">NANANG SUPRIATIM, S.T.</h4>
+                <p class="member-meta">Pengawas Standardisasi Pengajaran Praktik & Validasi Kelayakan Uji Kompetensi</p>
+            </div>
+            <div class="member-card cat-instruktur" data-aos="fade-up" data-aos-delay="400">
+                <div class="avatar-wrapper">
+                    <div class="avatar-circle">👨‍🏫</div>
+                </div>
+                <span class="role-tag">Instruktur</span>
+                <h4 class="member-name">LISA, S.KOM</h4>
+                <p class="member-meta">Pengawas Standardisasi Pengajaran Praktik & Validasi Kelayakan Uji Kompetensi</p>
+            </div>
 
 
-    <!-- Hero Section start -->
-
-    <div class="about-img-strukturorganisasi">
-            <img src="img/5.png"
-            alt="Tentang Kami">
         </div>
-    
-    <!-- Hero Section end -->
 
-        <!-- Footer start -->
+        <!-- PANEL STATISTIK DEKORATIF TAMBAHAN (MENGHILANGKAN KESAN SEPI) -->
+        <div class="board-stats" data-aos="zoom-in">
+            <div class="stat-node">
+                <h5>100%</h5>
+                <p>Transparansi Publik</p>
+            </div>
+            <div class="stat-node">
+                <h5>24 Orang</h5>
+                <p>Aparatur Sipil Negara</p>
+            </div>
+            <div class="stat-node">
+                <h5>12 Ahli</h5>
+                <p>Asesor BNSP Berlisensi</p>
+            </div>
+            <div class="stat-node">
+                <h5>A-Class</h5>
+                <p>Akreditasi Mutu Diklat</p>
+            </div>
+        </div>
+    </main>
+
     <footer>
-        <div class="socials">
-            <a href="https://instagram.com/blkseruyan"><i data-feather="instagram"></i></a>
-            <a href="https://facebook.com/BLK seruyan"><i data-feather="facebook"></i></a>
-        </div>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3 style="color:white; margin-bottom:15px;">BLK Seruyan</h3>
+                <p>Pusat Inkubasi Talenta Kerja Kompeten, Transparan, dan Akuntabel Nasional.</p>
+            </div>
 
-        <div class="links">
-            <a href="index.html#menu">Home</a>
-            <a href="index.html#menu">Program Pelatihan</a>
-            <a href="index.html">Profil</a>
-            <a href="index.html#contact">Kontak BLK</a>
-        </div>
+            <div class="footer-socials">
+                <h4 style="color:white; margin-bottom:15px;">Ikuti Media Sosial</h4>
+                <p style="font-size: 13px; margin-bottom: 15px; color: var(--text-muted);">Dapatkan pembaruan info
+                    pelatihan tercepat melalui kanal resmi kami:</p>
+                <div class="social-icons-wrapper">
+                    <a href="https://www.instagram.com/blkseruyan/" target="_blank" class="social-icon-link icon-ig"
+                        title="Instagram Resmi">📸 Instagram</a>
+                    <a href="https://www.facebook.com/BLK seruyan" target="_blank" class="social-icon-link icon-fb"
+                        title="Facebook Page">📘 Facebook</a>
+                    <a href="https://youtube.com" target="_blank" class="social-icon-link icon-yt"
+                        title="YouTube Channel">🎥 YouTube</a>
+                </div>
+            </div>
 
-        <div class="credit">
-            <p>Created by <a href="">alrifatih</a>. | &copy; 2026.</p>
+            <div class="footer-contact">
+                <h4 style="color:white; margin-bottom:15px;">Hubungi Kami</h4>
+                <p style="font-size: 14px;">Kuala Pembuang, Kabupaten Seruyan, Kalimantan Tengah, Indonesia.</p>
+            </div>
         </div>
-
+        <div class="footer-bottom">&copy; 2026 BLK Seruyan. All Rights Reserved. Portal Internasional. By alrifatih
+        </div>
     </footer>
-    <!-- Footer end --
 
+    <script src="js/script.js"></script>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
 
-    <-- Feather Icon -->
-<script>
-    feather.replace();
-</script>
+        // LOGIKA INTERAKTIF FILTER TAB GAYA PRESET MODERN
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const cards = document.querySelectorAll('.member-card');
 
-<!-- My Javascript -->
-<script src="js/script.js"></script>
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Hapus status aktif dari semua tombol tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
 
+                    const targetDept = tab.getAttribute('data-dept');
+
+                    cards.forEach(card => {
+                        if (targetDept === 'all') {
+                            card.style.display = 'block';
+                            card.style.transform = 'scale(1)';
+                        } else {
+                            if (card.classList.contains(`cat-${targetDept}`)) {
+                                card.style.display = 'block';
+                                card.style.transform = 'scale(1)';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
-
 
 </html>
