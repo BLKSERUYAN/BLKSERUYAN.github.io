@@ -515,7 +515,18 @@ section {
     box-shadow: var(--shadow-elegant);
     margin-bottom: 20px;
 }
+.featured-news1 {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr;
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-elegant);
+    margin-bottom: 20px;
+}
 @media (max-width: 992px) { .featured-news { grid-template-columns: 1fr; } }
+@media (max-width: 992px) { .featured-news1 { grid-template-columns: 1fr; } }
 
 /* Hub Tombol Melayang */
 .floating-hub {
@@ -626,6 +637,10 @@ footer {
     }
     .nav-links.active { display: flex; }
     .hero-text h2 { font-size: 32px; }
+
+    .news1 {
+        max-height: 300px;
+    }
 }
 
 /* ==========================================================================
