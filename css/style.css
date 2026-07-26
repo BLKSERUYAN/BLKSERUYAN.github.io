@@ -78,6 +78,18 @@ header {
 
     color: var(--dark);
 }
+    
+
+.logo div img {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    background: linear-gradient(135deg, var(--bg-white), var(--bg-light));
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-elegant);
+    border-top: 4px solid var(--accent);
+}
 
 .logo img {
 width: 40px;
