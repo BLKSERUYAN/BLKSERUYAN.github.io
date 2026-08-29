@@ -971,6 +971,96 @@ body.dark-theme .dropdown-menu {
 }
 
 
+/* =========================================================
+   FIX TAMPILAN BERITA DI HP
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Area berita */
+    .featured-news,
+    .featured-news1 {
+        display: block;
+        width: 100%;
+        margin-bottom: 25px;
+        border-radius: 14px;
+    }
+
+    /* Gambar berita */
+    .featured-news img.news1,
+    .featured-news1 img.news1 {
+        width: 100% !important;
+        height: 220px !important;
+        object-fit: cover !important;
+    }
+
+    /* Pembungkus gambar */
+    .featured-news > div:first-child,
+    .featured-news1 > div:first-child {
+        height: 220px !important;
+        min-height: 0 !important;
+    }
+
+    /* Bagian isi berita
+       !important diperlukan karena berita.html
+       menggunakan style="padding:40px" */
+    .featured-news > div:last-child,
+    .featured-news1 > div:last-child {
+        padding: 20px !important;
+        display: block !important;
+    }
+
+    /* Judul berita */
+    .featured-news h3,
+    .featured-news1 h3 {
+        font-size: 20px !important;
+        line-height: 1.4 !important;
+        margin: 10px 0 15px 0 !important;
+    }
+
+    /* Isi berita */
+    .featured-news p,
+    .featured-news1 p {
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+        margin-bottom: 20px !important;
+        color: var(--text-muted);
+        text-align: left;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Tanggal */
+    .featured-news span,
+    .featured-news1 span {
+        font-size: 11px !important;
+    }
+
+    /* Tombol */
+    .featured-news .btn-secondary,
+    .featured-news1 .btn-secondary {
+        font-size: 14px;
+    }
+
+    /* Judul halaman berita */
+    .section-title {
+        font-size: 25px !important;
+        line-height: 1.3 !important;
+    }
+
+    .section-subtitle {
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 30px;
+    }
+
+    /* Jarak section di HP */
+    section {
+        padding: 40px 15px !important;
+    }
+}
+
+
 
 
 
